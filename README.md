@@ -12,9 +12,3 @@
     ```bash
     rbenv install
     ```
-
-- 実行
-
-    ```bash
-    ruby src/main.rb
-    ```
