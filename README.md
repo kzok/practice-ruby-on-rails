@@ -7,8 +7,8 @@
 
 ## コマンドラインタスク
 
-- セットアップ
+- Rails アプリケーション起動
 
     ```bash
-    rbenv install
+    docker-compose up
     ```
