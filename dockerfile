@@ -1,7 +1,7 @@
 # https://docs.docker.com/compose/rails/
 FROM ruby:2.6.5
 
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client libpq-dev
 RUN mkdir /project
 WORKDIR /project
 COPY Gemfile /project/Gemfile
