@@ -10,5 +10,13 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <% first_post = @user.microposts.first %>
+  <% if !first_post.nil? %>
+    <strong>First post:</strong>
+    <%= first_post.content %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
