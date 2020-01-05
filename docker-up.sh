@@ -2,6 +2,7 @@
 
 cd $(dirname $0)
 
+export UID=$(id -u)
+export GID=$(id -g)
 docker-compose down
-rm -fr ./tmp
 docker-compose up --build -d
