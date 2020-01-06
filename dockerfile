@@ -9,4 +9,4 @@ COPY Gemfile.lock /project/Gemfile.lock
 RUN bundle install
 
 # Start the main process.
-CMD rails server -b 0.0.0.0
+CMD rails tmp:clear && rails server -b 0.0.0.0

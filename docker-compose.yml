@@ -3,11 +3,8 @@ version: '3'
 services:
   rails:
     build: .
-    user: "${UID}:${GID}"
     volumes:
       - .:/project
-      - /etc/passwd:/etc/passwd:ro
-      - /etc/group:/etc/group:ro
     tmpfs:
       - /project/tmp
     working_dir: /project
