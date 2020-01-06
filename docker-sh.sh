@@ -1,3 +1,3 @@
 #!/bin/bash -eu
 
-docker-compose exec rails //bin/bash --login -i
+docker-compose exec rails //bin/bash
