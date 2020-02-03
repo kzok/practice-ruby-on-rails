@@ -11,11 +11,11 @@
 - Rails アプリケーション起動
 
     ```bash
-    ./docker-up.sh
+    rails server -b 0.0.0.0
     ```
 
-- Rails コンテナ内で `/bin/bash` を起動
+- Docker で Rails アプリケーション起動
 
     ```bash
-    ./docker-sh.sh
+    ./docker-up.sh
     ```
