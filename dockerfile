@@ -8,5 +8,5 @@ COPY Gemfile /project/Gemfile
 COPY Gemfile.lock /project/Gemfile.lock
 RUN bundle install
 
-# Start the main process.
-CMD rails tmp:clear && rails server -b 0.0.0.0
+COPY docker/docker-entrypoint.sh /var/tmp
+CMD bash -E /var/tmp/docker-entrypoint.sh
