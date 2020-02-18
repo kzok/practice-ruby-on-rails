@@ -1,5 +1,8 @@
 version: '3'
 
+volumes:
+  mysql-data:
+
 services:
   rails:
     build: .
@@ -10,4 +13,22 @@ services:
     working_dir: /project
     ports:
       - "3000:3000"
+    restart: always
+    command: >
+      bash -c 'rails db:create && rails db:migrate && rails server -b 0.0.0.0'
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.9
+    environment:
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=
+    ports:
+      - "8080:80"
     restart: always
