@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 cd $(dirname $0)
 
 docker-compose down
-docker-compose up --build -d
+docker-compose up --build "$@"
