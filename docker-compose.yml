@@ -4,18 +4,11 @@ volumes:
   mysql-data:
 
 services:
-  rails:
+  workbench:
     build: .
-    volumes:
-      - .:/project
-    tmpfs:
-      - /project/tmp/
-    working_dir: /project
     ports:
-      - "3000:3000"
+      - "8000:3000"
     restart: always
-    command: >
-      bash -c 'rails db:create && rails db:migrate && rails server -b 0.0.0.0'
   mysql:
     image: mysql:5.7
     environment:
