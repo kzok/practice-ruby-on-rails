@@ -1,12 +1,9 @@
-# https://docs.docker.com/compose/rails/
-FROM ruby:2.6.5
+FROM ruby:2.6
 
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client libpq-dev
-RUN mkdir /project
-WORKDIR /project
+WORKDIR /workspace
+COPY .ruby-version Gemfile Gemfile.lock /workspace/
 
-COPY Gemfile /project/Gemfile
-COPY Gemfile.lock /project/Gemfile.lock
-RUN bundle install
-
-CMD rails server -b 0.0.0.0
+RUN apt update -qq \
+	&& apt install -y nodejs postgresql-client libpq-dev \
+	&& gem install bundler \
+	&& bundle install
